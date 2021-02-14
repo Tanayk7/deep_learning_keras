@@ -31,6 +31,9 @@ x_train, x_test, y_train, y_test = train_test_split(
     x, y, test_size=0.2, random_state=0)
 sc = StandardScaler()
 x_train = sc.fit_transform(x_train)
+print("training_data: ",x_train[len(x_train)-3:])
+print(type(x_train))
+print(x_train.shape)
 x_test = sc.fit_transform(x_test)
 
 # Create the model
@@ -58,12 +61,14 @@ plt.show()
 
 y_pred = classifier.predict(x_test)
 y_pred = (y_pred > 0.5)
+score = accuracy_score(y_pred, y_test)
+print("Accuracy score: ", score)
 
 # Create the confusion matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
 # Calculate the accuracy
-score = accuracy_score(y_pred, y_test)
-print("Accuracy score: ", score)
+
+
 plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
 plt.colorbar()
