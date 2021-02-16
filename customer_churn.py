@@ -31,7 +31,7 @@ x_train, x_test, y_train, y_test = train_test_split(
     x, y, test_size=0.2, random_state=0)
 sc = StandardScaler()
 x_train = sc.fit_transform(x_train)
-print("training_data: ",x_train[len(x_train)-3:])
+print("training_data: ", x_train[len(x_train)-3:])
 print(type(x_train))
 print(x_train.shape)
 x_test = sc.fit_transform(x_test)
