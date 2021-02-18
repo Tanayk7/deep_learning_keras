@@ -18,7 +18,6 @@ punctuation = string.punctuation
 tweet_tokenizer = TweetTokenizer()
 word_embeddings = {}
 
-
 def remove_stopwords(sentence):
     clean_sentence = " ".join(
         [word for word in sentence if word not in stopset])
@@ -127,5 +126,3 @@ for i in range(len(y_pred)):
     line = str(test_df['id'][i]) + "," + str(int(y_pred[i][0])) + "\n"
     f.write(line)
 f.close()
-
-
